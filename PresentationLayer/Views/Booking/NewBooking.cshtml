@@ -1,0 +1,25 @@
+﻿@model NewBookingViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "New Booking";
+}
+<div class="containter">
+    <div class="row">
+        <form class="row" asp-action="DisplayAllRooms">
+            <select class="col-7 my-2" asp-for="BranchId" asp-items="Model.Branches"><option selected>Select Branch</option></select>
+            <select class="col-7 my-2" asp-for="RoomTypeId" asp-items="Model.RoomTypes"><option selected>Select Room Type</option></select>
+            <div class="row">
+                <input class="col-5 my-2" placeholder="Customer ID" asp-for="CustomerId" />
+                <input class="col-5 mx-1 my-2" placeholder="Customer Name" asp-for="CustomerName" /> 
+            </div>
+            <div class="row">
+                <label class="col-2">Choose Date</label>
+                <input class="col-5 my-2" asp-for="BookingDate" />
+            </div>
+            
+            <input class="btn my-2 btn-primary" type="submit" value="Submit" />
+        </form>
+        
+
+    </div>
+</div>

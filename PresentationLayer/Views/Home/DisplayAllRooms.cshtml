@@ -1,0 +1,52 @@
+﻿@model ReportViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Report";
+}
+
+<div class="containter">
+    <div class="row">
+        <form class="row" asp-action="DisplayAllRooms">
+            <select class="col-6" asp-for="BranchId" asp-items="Model.Branches"><option selected>Select Branch</option></select>
+            <input class="btn mx-2 btn-outline-primary col-2" type="submit" value="Submit" />
+        </form>
+        @if(Model.Rooms.Count > 0)
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Room Number</td>
+                        <td>Room Type</td>
+                        <td>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <tr>
+                            <td>@room.Id</td>
+                            <td>@room.RoomType?.Type</td>
+                            @if (room.IsBooked)
+                            {
+                                <td>Booked</td>
+                            }
+                            else
+                            {
+                               <td>Available</td> 
+                            }
+                        </tr>
+
+                    }
+                </tbody>
+                
+            </table>
+        }
+        else
+        {
+            <div class="text-center">
+                <h3>No Rooms In the current Branch!</h3>
+            </div>
+        }
+
+    </div>
+</div>

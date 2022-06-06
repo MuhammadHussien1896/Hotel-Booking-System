@@ -1,0 +1,13 @@
+﻿@model Branch
+@{
+    Layout = "_Layout";
+}
+
+<form asp-action="CreateBranch">
+    <div class="mb-2">
+    <input class="form-control" asp-for="Location" type="text" placeholder="Branch Name" />
+    <span asp-validation-for="Location"></span>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Create" />
+</form>
+<partial name="_ValidationScriptsPartial"/>
